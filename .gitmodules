@@ -1,0 +1,3 @@
+[submodule "asyncqueue-lite"]
+	path = asyncqueue-lite
+	url = https://github.com/ucb-bar/asyncqueue-lite.git

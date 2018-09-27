@@ -28,7 +28,7 @@ name := "chisel-module-template"
 
 version := "3.1.0"
 
-scalaVersion := "2.11.12"
+scalaVersion := "2.12.4"
 
 crossScalaVersions := Seq("2.11.12", "2.12.4")
 
@@ -49,3 +49,9 @@ libraryDependencies ++= (Seq("chisel3","chisel-iotesters").map {
 scalacOptions ++= scalacOptionsVersion(scalaVersion.value)
 
 javacOptions ++= javacOptionsVersion(scalaVersion.value)
+
+// Depend on AsyncQueue
+// ACHTUNG: sbt gets confused if the Scala versions of the parent and
+// child project don't match!
+lazy val asyncqueue = (project in file("asyncqueue-lite"))//RootProject(file("./asyncqueue-lite"))
+lazy val myself = (project in file(".")).dependsOn(asyncqueue)
