@@ -8,4 +8,4 @@ This repo has some examples of multi-clock support in Chisel 3.
 
 Run these demos with `sbt test`. You can browse the generated waveforms in VCD format in `test_run_dir/`.
 
-(As a side effect this repo also has small example of subprojects in sbt in [build.sbt](build.sbt).)
+(As a side effect, this repo also has a small example of subprojects in sbt in [build.sbt](build.sbt).)
