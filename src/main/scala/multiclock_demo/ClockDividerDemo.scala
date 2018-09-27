@@ -15,7 +15,7 @@ object ClockDivider {
     * @param reset Optional reset signal.
     * @return Divided clock.
     */
-  def apply(clock_in: Clock, divide_by: Int, reset: Option[Bool]): Clock = {
+  def apply(clock_in: Clock, divide_by: Int, reset: Option[Bool] = None): Clock = {
     require(divide_by % 2 == 0, "Must divide by an even factor")
 
     // Declare some wires for use in this function.
