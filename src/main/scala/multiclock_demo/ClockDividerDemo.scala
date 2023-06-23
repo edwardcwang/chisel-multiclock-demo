@@ -3,8 +3,6 @@
 package multiclock_demo
 
 import chisel3._
-import chisel3.experimental.withClockAndReset
-import chisel3.experimental.RawModule
 import chisel3.util.log2Ceil
 
 object ClockDivider {
@@ -78,6 +76,6 @@ class ClockDividerDemoWrapper extends Module {
   clock_divider.io.clock := clock
   clock_divider.io.reset := reset
   // Convert Clocks to Bools for testing.
-  io.clock_divBy4 := clock_divider.io.clock_divBy4.asUInt.toBool
-  io.clock_divBy6 := clock_divider.io.clock_divBy6.asUInt.toBool
+  io.clock_divBy4 := clock_divider.io.clock_divBy4.asBool
+  io.clock_divBy6 := clock_divider.io.clock_divBy6.asBool
 }
