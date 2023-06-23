@@ -2,8 +2,6 @@
 package multiclock_demo
 
 import chisel3._
-import chisel3.experimental.withClockAndReset
-import chisel3.experimental.RawModule
 import chisel3.util.{Counter, Decoupled, MuxLookup}
 import freechips.asyncqueue.{AsyncQueue, AsyncQueueParams}
 
@@ -38,7 +36,7 @@ class TransmitModule extends Module {
     }))
 
     // Advance to the next item when data is being transferred on this cycle.
-    when (io.data_out.fire()) {
+    when (io.data_out.fire) {
       counter.inc()
     }
   }
@@ -57,7 +55,7 @@ class ReceiveModule extends Module {
   // When data is transmitted, update output.
   val output = RegInit(0.U)
   io.value_out := output
-  when (io.data_in.fire()) {
+  when (io.data_in.fire) {
     output := io.data_in.bits
   }
 }
